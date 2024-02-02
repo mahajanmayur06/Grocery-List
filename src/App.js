@@ -1,5 +1,5 @@
 import Header from './Header_';
-import SearchItem from './SearchItem';
+// import SearchItem from './SearchItem';
 import AddItem from './AddItem';
 import Content from './Content';
 import Footer from './Footer';
@@ -16,10 +16,10 @@ function App() {
 	}
 
 	const addItem = (item) => {
-		if (items.some(existingItem => existingItem.item === item)) {
-			alert('Cannot add two same items!');
-			return;
-		}	
+		// if (items.some(existingItem => existingItem.item === item)) {
+		// 	alert('Cannot add two same items!');
+		// 	return;
+		// }	
 		const id = items.length ? items[items.length - 1].id + 1 : 1
 		const MyNewItem = { id, checked: false, item };
 		const updatedItems = [...items, MyNewItem];
@@ -52,10 +52,10 @@ function App() {
 			setNewItem = {setNewItem}
 			handleSubmit={handleSubmit}
 		/>
-		<SearchItem
+		{/* <SearchItem
 			search = {search}
 			setSearch = {setSearch}
-		/>
+		/> */}
 		<Content
 			items={items.filter(item => ((item.item).toLowerCase()).includes(search.toLowerCase()))}
 			handleCheck = {handleCheck}
