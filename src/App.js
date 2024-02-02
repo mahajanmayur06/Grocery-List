@@ -1,5 +1,5 @@
 import Header from './Header_';
-// import SearchItem from './SearchItem';
+import SearchItem from './SearchItem';
 import AddItem from './AddItem';
 import Content from './Content';
 import Footer from './Footer';
@@ -52,10 +52,10 @@ function App() {
 			setNewItem = {setNewItem}
 			handleSubmit={handleSubmit}
 		/>
-		{/* <SearchItem
+		<SearchItem
 			search = {search}
 			setSearch = {setSearch}
-		/> */}
+		/>
 		<Content
 			items={items.filter(item => ((item.item).toLowerCase()).includes(search.toLowerCase()))}
 			handleCheck = {handleCheck}
