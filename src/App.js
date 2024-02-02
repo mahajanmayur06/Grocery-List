@@ -3,23 +3,26 @@ import SearchItem from './SearchItem';
 import AddItem from './AddItem';
 import Content from './Content';
 import Footer from './Footer';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function App() {
 	const [items, setItems] = useState(JSON.parse(localStorage.getItem('shoppinglist')));
 	const [newItem, setNewItem] = useState('');
 	const [search, setSearch] = useState('')
 
+	useEffect(() => {
+		console.log('render');
+	}, [])
 	const setAndSaveItems = (listItems) => {
 		setItems(listItems);
 		localStorage.setItem('shoppinglist', JSON.stringify(listItems))
 	}
 
 	const addItem = (item) => {
-		// if (items.some(existingItem => existingItem.item === item)) {
-		// 	alert('Cannot add two same items!');
-		// 	return;
-		// }	
+		if (items.some(existingItem => existingItem.item === item)) {
+			alert('Cannot add two same items!');
+			return;
+		}	
 		const id = items.length ? items[items.length - 1].id + 1 : 1
 		const MyNewItem = { id, checked: false, item };
 		const updatedItems = [...items, MyNewItem];
