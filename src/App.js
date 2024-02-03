@@ -11,8 +11,9 @@ function App() {
 	const [search, setSearch] = useState('')
 
 	useEffect(() => {
-		console.log('render');
-	}, [])
+		console.log('updating items');
+	}, []) // asynchronous in nature
+
 	const setAndSaveItems = (listItems) => {
 		setItems(listItems);
 		localStorage.setItem('shoppinglist', JSON.stringify(listItems))
